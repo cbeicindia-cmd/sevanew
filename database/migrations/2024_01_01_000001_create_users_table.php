@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('mobile')->nullable()->unique();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->enum('role', ['super_admin', 'admin', 'agent', 'citizen'])->default('citizen');
+            $table->enum('agent_status', ['pending', 'approved', 'rejected'])->nullable();
+            $table->string('aadhar_number')->nullable();
+            $table->string('pan_number')->nullable();
+            $table->string('state')->nullable();
+            $table->string('district')->nullable();
+            $table->text('address')->nullable();
+            $table->string('education')->nullable();
+            $table->decimal('annual_income', 12, 2)->nullable();
+            $table->string('category')->nullable();
+            $table->timestamp('otp_verified_at')->nullable();
+            $table->timestamp('approved_at')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
+};
