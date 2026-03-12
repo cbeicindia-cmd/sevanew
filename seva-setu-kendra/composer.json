@@ -1,0 +1,18 @@
+{
+  "name": "sevasetukendra/platform",
+  "description": "SEVA SETU KENDRA - Connecting Citizens with Government Opportunities",
+  "type": "project",
+  "require": {
+    "php": "^8.2",
+    "laravel/framework": "^10.0",
+    "laravel/breeze": "^2.0",
+    "openai-php/client": "^0.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Database\\Factories\\": "database/factories/",
+      "Database\\Seeders\\": "database/seeders/"
+    }
+  }
+}
